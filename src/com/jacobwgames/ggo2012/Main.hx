@@ -11,8 +11,8 @@ import com.haxepunk.HXP;
 class Main extends Engine 
 {
 
-	public static inline var kScreenWidth:Int = 640;
-	public static inline var kScreenHeight:Int = 480;
+	public static inline var kScreenWidth:Int = 800;
+	public static inline var kScreenHeight:Int = 640;
 	public static inline var kFrameRate:Int = 60;
 	public static inline var kClearColor:Int = 0x0099ff;
 	public static inline var kProjectName:String = "GGO2012";
