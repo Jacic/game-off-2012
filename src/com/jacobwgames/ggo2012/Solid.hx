@@ -8,13 +8,15 @@ import com.haxepunk.graphics.Image;
  * @author Jacic
  */
 
-class Solid 
+class Solid extends Entity
 {
-
+	
 	public function new() 
 	{
 		super();
 		
+		graphic = new Image("gfx/solid.png");
+		setHitbox(64, 64);
 		type = "solid";
 	}
 	
