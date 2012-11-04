@@ -13,6 +13,8 @@ class PlayWorld extends World
 	public function new() 
 	{
 		super();
+		
+		add(new Player(true));
 	}
 	
 	override public function update():Void
