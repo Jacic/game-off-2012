@@ -14,6 +14,8 @@ class Solid
 	public function new() 
 	{
 		super();
+		
+		type = "solid";
 	}
 	
 }
