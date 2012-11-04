@@ -9,7 +9,7 @@
 	<app main="com.jacobwgames.ggo2012.Main" file="GGo2012" path="bin" />
 
 	<window background="#333333" fps="60" />
-	<window width="640" height="480" unless="mobile" />
+	<window width="800" height="640" unless="mobile" />
 	<window orientation="landscape" vsync="true" antialiasing="0" if="cpp" />
 
 	<!-- classpath, haxe libs -->
