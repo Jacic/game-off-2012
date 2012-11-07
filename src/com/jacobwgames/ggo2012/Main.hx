@@ -2,6 +2,7 @@ package com.jacobwgames.ggo2012;
 
 import com.haxepunk.Engine;
 import com.haxepunk.HXP;
+import com.jacobwgames.ggo2012.Levels;
 
 /**
  * ...
@@ -34,7 +35,7 @@ class Main extends Engine
 #end
 		HXP.screen.color = kClearColor;
 		HXP.screen.scale = 1;
-		HXP.world = new PlayWorld();
+		HXP.world = new PlayWorld(Levels.level1);
 	}
 
 	public static function main()
