@@ -1,7 +1,6 @@
 package com.jacobwgames.ggo2012;
 
 import com.haxepunk.World;
-import haxe.xml.Fast;
 
 /**
  * ...
@@ -13,6 +12,7 @@ class PlayWorld extends World
 	private var levelWidth:Int;
 	private var levelHeight:Int;
 	private var clones:Array<Player>;
+	private var activeClone:Player;
 	
 	public function new(level:Xml) 
 	{
@@ -29,6 +29,7 @@ class PlayWorld extends World
 		{
 			var clone:Player = new Player(true, Std.parseInt(c.att.x), Std.parseInt(c.att.y));
 			clones.push(clone);
+			active = clone;
 			add(clone);
 		}
 		for(s in fast.nodes.solid)
@@ -41,5 +42,12 @@ class PlayWorld extends World
 	{
 		super.update();
 		
+	}
+	
+	public function changeActive(oldIndex:Int, newIndex:Int):Void
+	{
+		clones[oldIndex].isActive = false;
+		clones[newIndex].isActive = true;
+		activeClone = clones[newIndex];
 	}
 }
