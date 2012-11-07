@@ -18,8 +18,8 @@ class PlayWorld extends World
 	{
 		super();
 		
-		levelWidth = 2000;
-		levelWidth = 800;
+		levelWidth = 2560;
+		levelWidth = 1920;
 		
 		clones = [];
 		
