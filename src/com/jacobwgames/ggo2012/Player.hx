@@ -13,7 +13,7 @@ import com.haxepunk.utils.Key;
 
 class Player extends Entity
 {
-	private var isActive:Bool;
+	public var isActive:Bool;
 	private var image:Image;
 	private var speed:Int;
 	private var vy:Float;
