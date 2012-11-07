@@ -22,13 +22,16 @@ class Player extends Entity
 	private var jumpsLeft:Int;
 	private var isOnGround:Bool;
 	
-	public function new(act:Bool) 
+	public function new(act:Bool, xx:Int, yy:Int) 
 	{
 		super();
 		
 		isActive = act;
 		image = new Image("gfx/clone.png");
 		graphic = image;
+		
+		x = xx;
+		y = yy;
 		
 		setHitbox(96, 128);
 		type = "clone";
