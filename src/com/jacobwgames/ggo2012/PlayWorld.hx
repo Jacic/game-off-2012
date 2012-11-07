@@ -1,6 +1,8 @@
 package com.jacobwgames.ggo2012;
 
 import com.haxepunk.World;
+import com.haxepunk.HXP;
+import haxe.xml.Fast;
 
 /**
  * ...
@@ -19,7 +21,7 @@ class PlayWorld extends World
 		super();
 		
 		levelWidth = 2560;
-		levelWidth = 1920;
+		levelHeight = 1920;
 		
 		clones = [];
 		
@@ -29,19 +31,43 @@ class PlayWorld extends World
 		{
 			var clone:Player = new Player(true, Std.parseInt(c.att.x), Std.parseInt(c.att.y));
 			clones.push(clone);
-			active = clone;
+			activeClone = clone;
 			add(clone);
 		}
 		for(s in fast.nodes.solid)
 		{
 			add(new Solid(Std.parseInt(s.att.x), Std.parseInt(s.att.y)));
 		}
+		
+		//focus camera on first clone
+		HXP.camera.x = (activeClone.x - activeClone.halfWidth) - (HXP.width * .5);
+		HXP.camera.y = (activeClone.y - activeClone.halfHeight) - (HXP.height * .5);
 	}
 	
 	override public function update():Void
 	{
 		super.update();
 		
+		//center camera on active clone
+		HXP.camera.x = (activeClone.x - activeClone.halfWidth) - (HXP.width * .5);
+		HXP.camera.y = (activeClone.y - activeClone.halfHeight) - (HXP.height * .5);
+		//keep camera in bounds
+		if(HXP.camera.x < 0)
+		{
+			HXP.camera.x = 0;
+		}
+		else if(HXP.camera.x + HXP.width > levelWidth)
+		{
+			HXP.camera.x = levelWidth - HXP.width;
+		}
+		if(HXP.camera.y < 0)
+		{
+			HXP.camera.y = 0;
+		}
+		else if(HXP.camera.y + HXP.height > levelHeight)
+		{
+			HXP.camera.y = levelHeight - HXP.height;
+		}
 	}
 	
 	public function changeActive(oldIndex:Int, newIndex:Int):Void
