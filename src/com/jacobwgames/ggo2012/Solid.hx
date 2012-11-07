@@ -11,13 +11,16 @@ import com.haxepunk.graphics.Image;
 class Solid extends Entity
 {
 	
-	public function new() 
+	public function new(xx:Int, yy:Int) 
 	{
 		super();
 		
 		graphic = new Image("gfx/solid.png");
 		setHitbox(64, 64);
 		type = "solid";
+		
+		x = xx;
+		y = yy;
 	}
 	
 }
