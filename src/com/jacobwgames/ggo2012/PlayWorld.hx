@@ -13,6 +13,8 @@ class PlayWorld extends World
 {
 	private var levelWidth:Int;
 	private var levelHeight:Int;
+	private var beginX:Int;
+	private var beginY:Int;
 	private var clones:Array<Player>;
 	private var activeClone:Player;
 	
@@ -29,7 +31,9 @@ class PlayWorld extends World
 		
 		for(c in fast.nodes.clone)
 		{
-			var clone:Player = new Player(true, Std.parseInt(c.att.x), Std.parseInt(c.att.y));
+			beginX = Std.parseInt(c.att.x);
+			beginY = Std.parseInt(c.att.y);
+			var clone:Player = new Player(true, beginX, beginY);
 			clones.push(clone);
 			activeClone = clone;
 			add(clone);
@@ -68,6 +72,12 @@ class PlayWorld extends World
 		{
 			HXP.camera.y = levelHeight - HXP.height;
 		}
+		
+		//do some checks and stuff on the clones
+		for(i in clones)
+		{
+			checkToRespawn(i);
+		}
 	}
 	
 	public function changeActive(oldIndex:Int, newIndex:Int):Void
@@ -75,5 +85,14 @@ class PlayWorld extends World
 		clones[oldIndex].isActive = false;
 		clones[newIndex].isActive = true;
 		activeClone = clones[newIndex];
+	}
+	
+	public function checkToRespawn(clone:Player)
+	{
+		if(clone.y > levelHeight)
+		{
+			clone.x = beginX;
+			clone.y = beginY;
+		}
 	}
 }
