@@ -115,6 +115,7 @@ class Levels
     <Solid id="99" x="64" y="416" />
     <Solid id="100" x="192" y="352" />
     <Solid id="106" x="256" y="352" />
-    <Clone id="107" x="96" y="768" />
+    <Goal id="108" x="96" y="384" />
+    <Clone id="0" x="96" y="768" />
 </level>');
 }
