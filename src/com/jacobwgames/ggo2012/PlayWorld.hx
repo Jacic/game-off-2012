@@ -76,6 +76,17 @@ class PlayWorld extends World
 		}
 	}
 	
+	public function newClone():Void
+	{
+		for(i in clones)
+		{
+			i.isActive = false;
+		}
+		var newClone:Player = new Player(true, activeClone.x, activeClone.y);
+		clones.push(newClone);
+		add(newClone);
+	}
+	
 	public function changeActive(oldIndex:Int, newIndex:Int):Void
 	{
 		clones[oldIndex].isActive = false;
