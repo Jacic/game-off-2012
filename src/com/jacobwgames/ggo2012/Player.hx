@@ -14,6 +14,7 @@ import com.haxepunk.utils.Key;
 class Player extends Entity
 {
 	public var isActive:Bool;
+	public var index:Int;
 	private var image:Image;
 	private var speed:Int;
 	private var vy:Float;
@@ -22,11 +23,12 @@ class Player extends Entity
 	private var jumpsLeft:Int;
 	private var isOnGround:Bool;
 	
-	public function new(act:Bool, xx:Int, yy:Int) 
+	public function new(act:Bool, ind:Int, xx:Int, yy:Int) 
 	{
 		super();
 		
 		isActive = act;
+		index = ind;
 		image = new Image("gfx/clone.png");
 		graphic = image;
 		
@@ -66,7 +68,7 @@ class Player extends Entity
 			if(Input.pressed("up") && collide("solid", x, y + 1) != null)
 			{
 				jumpsLeft -= 1;
-				vy = -(maxVertSpeed * .5);
+				vy = -(maxVertSpeed * .6);
 			}
 		}
 		
