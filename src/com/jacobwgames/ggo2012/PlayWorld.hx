@@ -1,5 +1,7 @@
 package com.jacobwgames.ggo2012;
 
+import com.haxepunk.utils.Input;
+import com.haxepunk.utils.Key;
 import com.haxepunk.World;
 import com.haxepunk.HXP;
 import haxe.xml.Fast;
@@ -33,7 +35,7 @@ class PlayWorld extends World
 		{
 			beginX = Std.parseInt(c.att.x);
 			beginY = Std.parseInt(c.att.y);
-			var clone:Player = new Player(true, beginX, beginY);
+			var clone:Player = new Player(true, 0, beginX, beginY);
 			clones.push(clone);
 			activeClone = clone;
 			add(clone);
@@ -69,6 +71,19 @@ class PlayWorld extends World
 			HXP.camera.y = maxLevelHeight - HXP.height;
 		}
 		
+		//get input to switch clones or create one
+		if(Input.pressed(Key.DIGIT_1) || Input.pressed(Key.DIGIT_2) || Input.pressed(Key.DIGIT_3) || Input.pressed(Key.DIGIT_4))
+		{
+			if(clones[Input.lastKey - 49] == null)
+			{
+				newClone();
+			}
+			else
+			{
+				changeActive(activeClone.index, Input.lastKey - 49);
+			}
+		}
+		
 		//do some checks and stuff on the clones
 		for(i in clones)
 		{
@@ -82,7 +97,7 @@ class PlayWorld extends World
 		{
 			i.isActive = false;
 		}
-		var newClone:Player = new Player(true, activeClone.x, activeClone.y);
+		var newClone:Player = new Player(true, clones.length, Std.int(activeClone.x), Std.int(activeClone.y));
 		clones.push(newClone);
 		add(newClone);
 	}
