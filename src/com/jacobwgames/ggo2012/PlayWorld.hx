@@ -42,10 +42,6 @@ class PlayWorld extends World
 		{
 			add(new Solid(Std.parseInt(s.att.x), Std.parseInt(s.att.y)));
 		}
-		
-		//focus camera on first clone
-		HXP.camera.x = (activeClone.x - activeClone.halfWidth) - (HXP.width * .5);
-		HXP.camera.y = (activeClone.y - activeClone.halfHeight) - (HXP.height * .5);
 	}
 	
 	override public function update():Void
@@ -53,8 +49,8 @@ class PlayWorld extends World
 		super.update();
 		
 		//center camera on active clone
-		HXP.camera.x = (activeClone.x - activeClone.halfWidth) - (HXP.width * .5);
-		HXP.camera.y = (activeClone.y - activeClone.halfHeight) - (HXP.height * .5);
+		HXP.camera.x = (activeClone.x + activeClone.halfWidth) - (HXP.width * .5);
+		HXP.camera.y = (activeClone.y + activeClone.halfHeight) - (HXP.height * .5);
 		//keep camera in bounds
 		if(HXP.camera.x < 0)
 		{
