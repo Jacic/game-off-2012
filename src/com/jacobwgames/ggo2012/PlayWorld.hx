@@ -11,8 +11,8 @@ import haxe.xml.Fast;
 
 class PlayWorld extends World
 {
-	private var levelWidth:Int;
-	private var levelHeight:Int;
+	private var maxLevelWidth:Int;
+	private var maxLevelHeight:Int;
 	private var beginX:Int;
 	private var beginY:Int;
 	private var clones:Array<Player>;
@@ -22,14 +22,14 @@ class PlayWorld extends World
 	{
 		super();
 		
-		levelWidth = 2560;
-		levelHeight = 1920;
+		maxLevelWidth = 2560;
+		maxLevelHeight = 1920;
 		
 		clones = [];
 		
 		var fast = new Fast(level.firstElement());
 		
-		for(c in fast.nodes.clone)
+		for(c in fast.nodes.Clone)
 		{
 			beginX = Std.parseInt(c.att.x);
 			beginY = Std.parseInt(c.att.y);
@@ -38,7 +38,7 @@ class PlayWorld extends World
 			activeClone = clone;
 			add(clone);
 		}
-		for(s in fast.nodes.solid)
+		for(s in fast.nodes.Solid)
 		{
 			add(new Solid(Std.parseInt(s.att.x), Std.parseInt(s.att.y)));
 		}
@@ -60,17 +60,17 @@ class PlayWorld extends World
 		{
 			HXP.camera.x = 0;
 		}
-		else if(HXP.camera.x + HXP.width > levelWidth)
+		else if(HXP.camera.x + HXP.width > maxLevelWidth)
 		{
-			HXP.camera.x = levelWidth - HXP.width;
+			HXP.camera.x = maxLevelWidth - HXP.width;
 		}
 		if(HXP.camera.y < 0)
 		{
 			HXP.camera.y = 0;
 		}
-		else if(HXP.camera.y + HXP.height > levelHeight)
+		else if(HXP.camera.y + HXP.height > maxLevelHeight)
 		{
-			HXP.camera.y = levelHeight - HXP.height;
+			HXP.camera.y = maxLevelHeight - HXP.height;
 		}
 		
 		//do some checks and stuff on the clones
@@ -89,7 +89,7 @@ class PlayWorld extends World
 	
 	public function checkToRespawn(clone:Player)
 	{
-		if(clone.y > levelHeight)
+		if(clone.y > maxLevelHeight)
 		{
 			clone.x = beginX;
 			clone.y = beginY;
