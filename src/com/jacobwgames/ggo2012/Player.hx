@@ -31,6 +31,7 @@ class Player extends Entity
 		index = ind;
 		image = new Image("gfx/clone.png");
 		graphic = image;
+		layer = 10;
 		
 		x = xx;
 		y = yy;
