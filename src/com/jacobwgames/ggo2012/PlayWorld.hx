@@ -50,9 +50,7 @@ class PlayWorld extends World
 	{
 		super.update();
 		
-		//center camera on active clone
-		HXP.camera.x = (activeClone.x + activeClone.halfWidth) - (HXP.width * .5);
-		HXP.camera.y = (activeClone.y + activeClone.halfHeight) - (HXP.height * .5);
+		updateCamera();
 		//keep camera in bounds
 		if(HXP.camera.x < 0)
 		{
@@ -100,6 +98,7 @@ class PlayWorld extends World
 		var newClone:Player = new Player(true, clones.length, Std.int(activeClone.x), Std.int(activeClone.y));
 		clones.push(newClone);
 		add(newClone);
+		activeClone = newClone;
 	}
 	
 	public function changeActive(oldIndex:Int, newIndex:Int):Void
@@ -116,5 +115,12 @@ class PlayWorld extends World
 			clone.x = beginX;
 			clone.y = beginY;
 		}
+	}
+	
+	public function updateCamera():Void
+	{
+		//center camera on active clone
+		HXP.camera.x = (activeClone.x + activeClone.halfWidth) - (HXP.width * .5);
+		HXP.camera.y = (activeClone.y + activeClone.halfHeight) - (HXP.height * .5);
 	}
 }
