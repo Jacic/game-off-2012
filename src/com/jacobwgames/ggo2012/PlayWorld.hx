@@ -1,5 +1,6 @@
 package com.jacobwgames.ggo2012;
 
+import com.haxepunk.graphics.Text;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
 import com.haxepunk.World;
@@ -17,8 +18,13 @@ class PlayWorld extends World
 	private var maxLevelHeight:Int;
 	private var beginX:Int;
 	private var beginY:Int;
+	private var clonesNeeded:Int;
+	private var clonesText:Text;
+	private var savedText:Text;
+	private var clonesSaved:Int;
 	private var clones:Array<Player>;
 	private var activeClone:Player;
+	private var goal:Goal;
 	
 	public function new(level:Xml) 
 	{
@@ -26,6 +32,8 @@ class PlayWorld extends World
 		
 		maxLevelWidth = 2560;
 		maxLevelHeight = 1920;
+		
+		clonesNeeded = 4;
 		
 		clones = [];
 		
@@ -43,6 +51,11 @@ class PlayWorld extends World
 		for(s in fast.nodes.Solid)
 		{
 			add(new Solid(Std.parseInt(s.att.x), Std.parseInt(s.att.y)));
+		}
+		for(g in fast.nodes.Goal)
+		{
+			goal = new Goal(Std.parseInt(g.att.x), Std.parseInt(g.att.y));
+			add(goal);
 		}
 	}
 	
@@ -85,7 +98,12 @@ class PlayWorld extends World
 		//do some checks and stuff on the clones
 		for(i in clones)
 		{
+			clonesSaved = 0;
 			checkToRespawn(i);
+			if(checkIfSaved(i))
+			{
+				clonesSaved += 1;
+			}
 		}
 	}
 	
@@ -119,6 +137,15 @@ class PlayWorld extends World
 			clone.x = beginX;
 			clone.y = beginY;
 		}
+	}
+	
+	public function checkIfSaved(clone:Player):Bool
+	{
+		if(clone.collideWith(goal, clone.x, clone.y) != null && clone.y + clone.height > goal.y)
+		{
+			return true;
+		}
+		return false;
 	}
 	
 	public function updateCamera():Void
