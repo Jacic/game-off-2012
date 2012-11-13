@@ -2,7 +2,7 @@ package com.jacobwgames.ggo2012;
 
 import com.haxepunk.HXP;
 import com.haxepunk.Entity;
-import com.haxepunk.graphics.Image;
+import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
 
@@ -13,9 +13,10 @@ import com.haxepunk.utils.Key;
 
 class Player extends Entity
 {
-	public var isActive:Bool;
 	public var index:Int;
-	private var image:Image;
+	private var isActive:Bool;
+	private var imageR:Spritemap;
+	private var imageL:Spritemap;
 	private var speed:Int;
 	private var vy:Float;
 	private var gravity:Float;
@@ -29,8 +30,14 @@ class Player extends Entity
 		
 		isActive = act;
 		index = ind;
-		image = new Image("gfx/clone.png");
-		graphic = image;
+		imageR = new Spritemap("gfx/cloneright.png", 96, 128);
+		imageR.add("stand", [0], 0, false);
+		imageR.add("walk", [0, 1, 3, 2, 2, 1], 10, true);
+		imageL = new Spritemap("gfx/cloneleft.png", 96, 128);
+		imageL.add("stand", [0], 0, false);
+		imageL.add("walk", [0, 1, 3, 2, 2, 1], 10, true);
+		graphic = imageR;
+		imageR.play("stand");
 		layer = 10;
 		
 		x = xx;
@@ -60,10 +67,22 @@ class Player extends Entity
 			if(Input.check("left"))
 			{
 				plusX -= speed * HXP.elapsed;
+				graphic = imageL;
+				imageL.play("walk");
+			}
+			else if(Input.released("left"))
+			{
+				imageL.play("stand");
 			}
 			if(Input.check("right"))
 			{
 				plusX += speed * HXP.elapsed;
+				graphic = imageR;
+				imageR.play("walk");
+			}
+			else if(Input.released("right"))
+			{
+				imageR.play("stand");
 			}
 			
 			if(Input.pressed("up") && collide("solid", x, y + 1) != null)
@@ -103,7 +122,7 @@ class Player extends Entity
 			//a solid object in the way
 			if(plusX > 0)
 			{
-				x = colsolid.x - image.scaledWidth;
+				x = colsolid.x - width;
 			}
 			else
 			{
@@ -123,7 +142,7 @@ class Player extends Entity
 			//a solid object int the way
 			if(vy > 0)
 			{
-				y = colsolid.y - image.scaledHeight;
+				y = colsolid.y - height;
 			}
 			else
 			{
@@ -133,5 +152,21 @@ class Player extends Entity
 		}
 		
 		x += plusX;
+	}
+	
+	public function changeActiveState(act:Bool):Void
+	{
+		isActive = act;
+		if(!isActive)
+		{
+			if(graphic == imageL)
+			{
+				imageL.play("stand");
+			}
+			else
+			{
+				imageR.play("stand");
+			}
+		}
 	}
 }
