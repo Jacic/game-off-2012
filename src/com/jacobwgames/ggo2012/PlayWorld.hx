@@ -111,7 +111,7 @@ class PlayWorld extends World
 	{
 		for(i in clones)
 		{
-			i.isActive = false;
+			i.changeActiveState(false);
 			i.layer = 100;
 		}
 		var newClone:Player = new Player(true, clones.length, Std.int(activeClone.x), Std.int(activeClone.y));
@@ -123,9 +123,9 @@ class PlayWorld extends World
 	
 	public function changeActive(oldIndex:Int, newIndex:Int):Void
 	{
-		clones[oldIndex].isActive = false;
+		clones[oldIndex].changeActiveState(false);
 		clones[oldIndex].layer = 100;
-		clones[newIndex].isActive = true;
+		clones[newIndex].changeActiveState(true);
 		clones[newIndex].layer = 10;
 		activeClone = clones[newIndex];
 	}
