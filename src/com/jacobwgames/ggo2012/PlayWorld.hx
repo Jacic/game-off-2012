@@ -3,6 +3,7 @@ package com.jacobwgames.ggo2012;
 import com.haxepunk.graphics.Text;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import com.haxepunk.Entity;
 import com.haxepunk.World;
 import com.haxepunk.HXP;
 import haxe.xml.Fast;
@@ -34,6 +35,7 @@ class PlayWorld extends World
 		maxLevelHeight = 1920;
 		
 		clonesNeeded = 4;
+		clonesSaved = 0;
 		
 		clones = [];
 		
@@ -57,6 +59,22 @@ class PlayWorld extends World
 			goal = new Goal(Std.parseInt(g.att.x), Std.parseInt(g.att.y));
 			add(goal);
 		}
+		
+		clonesText = new Text("Clones: " + clones.length + " / 6", 0, 0, Std.int(HXP.screen.width * .3), 50);
+		clonesText.size = 26;
+		clonesText.color = 0xf0dd00;
+		clonesText.x = HXP.screen.width * .2;
+		clonesText.y = 5;
+		clonesText.scrollX = clonesText.scrollY = 0;
+		addGraphic(clonesText);
+		
+		savedText = new Text("Saved: " + clonesSaved + " / " + clonesNeeded, 0, 0, Std.int(HXP.screen.width * .3), 50);
+		savedText.size = 26;
+		savedText.color = 0xffee00;
+		savedText.x = HXP.screen.width * .5;
+		savedText.y = 5;
+		savedText.scrollX = savedText.scrollY = 0;
+		addGraphic(savedText);
 	}
 	
 	override public function update():Void
@@ -88,6 +106,7 @@ class PlayWorld extends World
 			if(clones[Input.lastKey - 49] == null)
 			{
 				newClone();
+				clonesText.text = "Clones: " + clones.length + " / 6";
 			}
 			else
 			{
@@ -98,13 +117,12 @@ class PlayWorld extends World
 		//do some checks and stuff on the clones
 		for(i in clones)
 		{
-			clonesSaved = 0;
 			checkToRespawn(i);
-			if(checkIfSaved(i))
-			{
-				clonesSaved += 1;
-			}
 		}
+		
+		clonesSaved = getClonesSaved();
+		trace(clonesSaved);
+		savedText.text = "Saved: " + clonesSaved + " / " + clonesNeeded;
 	}
 	
 	public function newClone():Void
@@ -139,13 +157,11 @@ class PlayWorld extends World
 		}
 	}
 	
-	public function checkIfSaved(clone:Player):Bool
+	public function getClonesSaved():Int
 	{
-		if(clone.collideWith(goal, clone.x, clone.y) != null && clone.y + clone.height > goal.y)
-		{
-			return true;
-		}
-		return false;
+		var collides:Array<Entity> = [];
+		goal.collideInto("clone", goal.x, goal.y - 1, collides);
+		return collides.length;
 	}
 	
 	public function updateCamera():Void
