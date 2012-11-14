@@ -31,6 +31,8 @@ class PlayWorld extends World
 	{
 		super();
 		
+		Levels.curLevel += 1;
+		
 		maxLevelWidth = 2560;
 		maxLevelHeight = 1920;
 		
@@ -123,6 +125,12 @@ class PlayWorld extends World
 		clonesSaved = getClonesSaved();
 		trace(clonesSaved);
 		savedText.text = "Saved: " + clonesSaved + " / " + clonesNeeded;
+		
+		if(Input.pressed(Key.ENTER) && clonesSaved >= clonesNeeded)
+		{
+			HXP.world.removeAll();
+			HXP.world = new PlayWorld(Levels.levelArray[Levels.curLevel]);
+		}
 	}
 	
 	public function newClone():Void
