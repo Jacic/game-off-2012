@@ -45,7 +45,7 @@ class Player extends Entity
 		
 		setHitbox(96, 128);
 		type = "clone";
-		speed = 120;
+		speed = 200;
 		vy = .1;
 		gravity = .2;
 		maxVertSpeed = 15;
@@ -150,8 +150,6 @@ class Player extends Entity
 			}
 			vy = 0;
 		}
-		
-		x += plusX;
 	}
 	
 	public function changeActiveState(act:Bool):Void
