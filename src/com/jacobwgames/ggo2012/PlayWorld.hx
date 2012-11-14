@@ -36,12 +36,12 @@ class PlayWorld extends World
 		maxLevelWidth = 2560;
 		maxLevelHeight = 1920;
 		
-		clonesNeeded = 4;
-		clonesSaved = 0;
-		
 		clones = [];
 		
 		var fast = new Fast(level.firstElement());
+		
+		clonesNeeded = Std.parseInt(fast.att.needed);
+		clonesSaved = 0;
 		
 		for(c in fast.nodes.Clone)
 		{
