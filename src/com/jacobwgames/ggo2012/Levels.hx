@@ -7,6 +7,8 @@ package com.jacobwgames.ggo2012;
 
 class Levels 
 {
+	public static var curLevel:Int;
+	public static var levelArray:Array<Xml>;
 	public static var level1:Xml = Xml.parse('<level width="1280" height="960">
     <Solid id="0" x="0" y="896" />
     <Solid id="1" x="0" y="832" />
