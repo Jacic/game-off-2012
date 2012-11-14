@@ -123,7 +123,6 @@ class PlayWorld extends World
 		}
 		
 		clonesSaved = getClonesSaved();
-		trace(clonesSaved);
 		savedText.text = "Saved: " + clonesSaved + " / " + clonesNeeded;
 		
 		if(Input.pressed(Key.ENTER) && clonesSaved >= clonesNeeded)
