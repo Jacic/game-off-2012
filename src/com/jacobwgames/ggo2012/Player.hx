@@ -90,11 +90,10 @@ class Player extends Entity
 				jumpsLeft -= 1;
 				vy = -(maxVertSpeed * .6);
 			}
-		}
-		
-		if(!Input.check("up") && vy < 0)
-		{
-			vy += gravity;
+			if(!Input.check("up") && vy < 0)
+			{
+				vy += gravity;
+			}
 		}
 		
 		vy += gravity;
