@@ -85,7 +85,7 @@ class Player extends Entity
 				imageR.play("stand");
 			}
 			
-			if(Input.pressed("up") && collide("solid", x, y + 1) != null)
+			if(Input.pressed("up") && jumpsLeft > 0)
 			{
 				jumpsLeft -= 1;
 				vy = -(maxVertSpeed * .6);
@@ -110,8 +110,8 @@ class Player extends Entity
 			}
 		}
 		
-		var colsolid = collide("solid", x + plusX, y);
-		if(plusX != 0 && colsolid == null)
+		var colobject = collide("solid", x + plusX, y);
+		if(plusX != 0 && colobject == null)
 		{
 			//nothing in the way
 			x += plusX;
@@ -121,33 +121,49 @@ class Player extends Entity
 			//a solid object in the way
 			if(plusX > 0)
 			{
-				x = colsolid.x - width;
+				x = colobject.x - width;
 			}
 			else
 			{
-				x = colsolid.x + colsolid.width;
+				x = colobject.x + colobject.width;
 			}
 			plusX = 0;
 		}
 		
-		colsolid = collide("solid", x, y + vy);
-		if(vy != 0 && colsolid == null)
+		var colarr:Array<Entity> = [];
+		collideTypesInto(["solid", "clone"], x, y + vy, colarr);
+		if(vy != 0 && colarr == null)
 		{
 			//nothing in the way
 			y += vy;
 		}
 		else if(vy != 0)
 		{
-			//a solid object int the way
+			//a solid object in the way
 			if(vy > 0)
 			{
-				y = colsolid.y - height;
+				if(colarr.length != 0)
+				{
+					for(i in colarr)
+					{
+						if(y + height <= i.y)
+						{
+							vy = 0;
+							y = i.y - height;
+							jumpsLeft = 1;
+						}
+					}
+				}
 			}
-			else
+			else if(colarr.length != 0)
 			{
-				y = colsolid.y + colsolid.height;
+				if(colarr[0].type != "clone")
+				{
+					y = colarr[0].y + colarr[0].height;
+					vy = 0;
+				}
 			}
-			vy = 0;
+			y += vy;
 		}
 	}
 	
