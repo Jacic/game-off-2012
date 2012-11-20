@@ -185,5 +185,74 @@ class Levels
     <Solid id="61" x="128" y="832" />
     <Goal id="62" x="1120" y="864" />
     <Clone id="0" x="80" y="704" />
-</level>');
+	</level> ');
+	public static var level3:Xml = Xml.parse('<level width="960" height="1600" needed="4">
+    <Solid id="0" x="0" y="1536" />
+    <Solid id="1" x="64" y="1536" />
+    <Solid id="2" x="128" y="1536" />
+    <Solid id="3" x="192" y="1536" />
+    <Solid id="4" x="256" y="1536" />
+    <Solid id="5" x="448" y="1536" />
+    <Solid id="6" x="512" y="1536" />
+    <Solid id="7" x="576" y="1536" />
+    <Solid id="8" x="640" y="1536" />
+    <Solid id="9" x="704" y="1536" />
+    <Solid id="10" x="768" y="1536" />
+    <Solid id="11" x="832" y="1536" />
+    <Solid id="12" x="896" y="1536" />
+    <Solid id="13" x="576" y="1472" />
+    <Solid id="14" x="640" y="1472" />
+    <Solid id="15" x="704" y="1472" />
+    <Solid id="16" x="768" y="1472" />
+    <Solid id="17" x="832" y="1472" />
+    <Solid id="18" x="896" y="1472" />
+    <Solid id="19" x="704" y="1408" />
+    <Solid id="20" x="768" y="1408" />
+    <Solid id="21" x="832" y="1408" />
+    <Solid id="22" x="896" y="1408" />
+    <Solid id="23" x="896" y="1024" />
+    <Solid id="24" x="832" y="1024" />
+    <Solid id="27" x="448" y="1024" />
+    <Solid id="28" x="0" y="1024" />
+    <Solid id="29" x="64" y="1024" />
+    <Solid id="30" x="128" y="1024" />
+    <Solid id="31" x="192" y="1024" />
+    <Solid id="32" x="0" y="960" />
+    <Solid id="33" x="64" y="960" />
+    <Solid id="34" x="128" y="960" />
+    <Solid id="35" x="928" y="960" />
+    <Solid id="36" x="928" y="896" />
+    <Solid id="37" x="928" y="832" />
+    <Solid id="38" x="928" y="768" />
+    <Solid id="39" x="928" y="704" />
+    <Solid id="40" x="928" y="640" />
+    <Solid id="41" x="928" y="576" />
+    <Solid id="42" x="928" y="512" />
+    <Solid id="43" x="928" y="448" />
+    <Solid id="44" x="-32" y="896" />
+    <Solid id="45" x="-32" y="832" />
+    <Solid id="46" x="-32" y="768" />
+    <Solid id="47" x="-32" y="704" />
+    <Solid id="48" x="-32" y="640" />
+    <Solid id="49" x="-32" y="576" />
+    <Solid id="50" x="-32" y="512" />
+    <Solid id="51" x="-32" y="448" />
+    <Solid id="52" x="-32" y="1472" />
+    <Solid id="53" x="-32" y="1408" />
+    <Solid id="54" x="-32" y="1344" />
+    <Solid id="55" x="-32" y="1280" />
+    <Solid id="56" x="-32" y="1216" />
+    <Solid id="57" x="-32" y="1152" />
+    <Solid id="58" x="-32" y="1088" />
+    <Solid id="59" x="928" y="1344" />
+    <Solid id="60" x="928" y="1280" />
+    <Solid id="61" x="928" y="1216" />
+    <Solid id="62" x="928" y="1152" />
+    <Solid id="63" x="928" y="1088" />
+    <Solid id="25" x="384" y="1024" />
+    <Solid id="26" x="320" y="1024" />
+    <Solid id="64" x="256" y="1024" />
+    <Clone id="0" x="48" y="1408" />
+    <Goal id="1" x="64" y="928" />
+	</level>');
 }
