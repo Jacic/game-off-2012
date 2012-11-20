@@ -60,13 +60,13 @@ class Player extends Entity
 	
 	override public function update():Void
 	{
-		var plusX:Float = 0;
+		var vx:Float = 0;
 		
 		if(isActive)
 		{
 			if(Input.check("left"))
 			{
-				plusX -= speed * HXP.elapsed;
+				vx -= speed * HXP.elapsed;
 				graphic = imageL;
 				imageL.play("walk");
 			}
@@ -76,7 +76,7 @@ class Player extends Entity
 			}
 			if(Input.check("right"))
 			{
-				plusX += speed * HXP.elapsed;
+				vx += speed * HXP.elapsed;
 				graphic = imageR;
 				imageR.play("walk");
 			}
@@ -110,16 +110,16 @@ class Player extends Entity
 			}
 		}
 		
-		var colobject = collide("solid", x + plusX, y);
-		if(plusX != 0 && colobject == null)
+		var colobject = collide("solid", x + vx, y);
+		if(vx != 0 && colobject == null)
 		{
 			//nothing in the way
-			x += plusX;
+			x += vx;
 		}
-		else if(plusX != 0)
+		else if(vx != 0)
 		{
 			//a solid object in the way
-			if(plusX > 0)
+			if(vx > 0)
 			{
 				x = colobject.x - width;
 			}
@@ -127,7 +127,7 @@ class Player extends Entity
 			{
 				x = colobject.x + colobject.width;
 			}
-			plusX = 0;
+			vx = 0;
 		}
 		
 		var colarr:Array<Entity> = [];
