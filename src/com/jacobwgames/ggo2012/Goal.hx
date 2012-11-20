@@ -16,7 +16,7 @@ class Goal extends Entity
 		super();
 		
 		graphic = new Image("gfx/goal.png");
-		setHitbox(32, 64);
+		setHitbox(64, 32);
 		type = "solid";
 		
 		x = xx;
