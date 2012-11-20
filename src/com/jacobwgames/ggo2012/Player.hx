@@ -88,7 +88,7 @@ class Player extends Entity
 			if(Input.pressed("up") && jumpsLeft > 0)
 			{
 				jumpsLeft -= 1;
-				vy = -(maxVertSpeed * .6);
+				vy = -(maxVertSpeed * .58);
 			}
 			if(!Input.check("up") && vy < 0)
 			{
