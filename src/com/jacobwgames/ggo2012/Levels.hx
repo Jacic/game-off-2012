@@ -252,6 +252,20 @@ class Levels
     <Solid id="25" x="384" y="1024" />
     <Solid id="26" x="320" y="1024" />
     <Solid id="64" x="256" y="1024" />
+	<Solid id="65" x="-32" y="384" />
+    <Solid id="66" x="-32" y="320" />
+    <Solid id="67" x="-32" y="256" />
+    <Solid id="68" x="-32" y="192" />
+    <Solid id="69" x="928" y="384" />
+    <Solid id="70" x="928" y="320" />
+    <Solid id="71" x="928" y="256" />
+    <Solid id="72" x="928" y="192" />
+    <Solid id="73" x="-32" y="128" />
+    <Solid id="74" x="-32" y="64" />
+    <Solid id="75" x="928" y="128" />
+    <Solid id="76" x="928" y="64" />
+	<Solid id="77" x="-32" y="0" />
+    <Solid id="78" x="928" y="0" />
     <Clone id="0" x="48" y="1408" />
     <Goal id="1" x="64" y="928" />
 	</level>');
