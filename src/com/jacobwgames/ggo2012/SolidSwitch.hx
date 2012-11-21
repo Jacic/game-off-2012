@@ -16,7 +16,7 @@ class SolidSwitch extends Entity
 		super();
 		
 		graphic = new Image("gfx/solidswitch.png");
-		setHitbox(64, 64);
+		setHitbox(32, 32);
 		changeState(act == "true");
 		
 		x = xx;
