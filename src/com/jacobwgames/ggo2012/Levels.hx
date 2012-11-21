@@ -255,7 +255,7 @@ class Levels
     <Clone id="0" x="48" y="1408" />
     <Goal id="1" x="64" y="928" />
 	</level>');
-	public static var level4:Xml = Xml.parse('<level width="1600" height="960" needed="4" bmode="0">
+	public static var level4:Xml = Xml.parse('<level width="1600" height="960" needed="4" bmode="0" switchstart="true">
     <Solid id="0" x="0" y="896" />
     <Solid id="1" x="64" y="896" />
     <Solid id="2" x="128" y="896" />
