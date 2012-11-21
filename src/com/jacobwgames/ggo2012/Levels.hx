@@ -9,7 +9,7 @@ class Levels
 {
 	public static var curLevel:Int;
 	public static var levelArray:Array<Xml>;
-	public static var level1:Xml = Xml.parse('<level width="1280" height="960" needed="6">
+	public static var level1:Xml = Xml.parse('<level width="1280" height="960" needed="6" bmode="0" switchstart="true">
     <Solid id="0" x="0" y="896" />
     <Solid id="1" x="0" y="832" />
     <Solid id="2" x="0" y="768" />
@@ -120,7 +120,7 @@ class Levels
     <Goal id="108" x="96" y="384" />
     <Clone id="0" x="96" y="768" />
 	</level>');
-	public static var level2:Xml = Xml.parse('<level width="1280" height="960" needed="6">
+	public static var level2:Xml = Xml.parse('<level width="1280" height="960" needed="6" bmode="0" switchstart="true">
     <Solid id="0" x="0" y="0" />
     <Solid id="1" x="64" y="0" />
     <Solid id="2" x="128" y="0" />
@@ -186,7 +186,7 @@ class Levels
     <Goal id="62" x="1120" y="864" />
     <Clone id="0" x="80" y="704" />
 	</level> ');
-	public static var level3:Xml = Xml.parse('<level width="960" height="1600" needed="4">
+	public static var level3:Xml = Xml.parse('<level width="960" height="1600" needed="4" bmode="0" switchstart="true">
     <Solid id="0" x="0" y="1536" />
     <Solid id="1" x="64" y="1536" />
     <Solid id="2" x="128" y="1536" />
