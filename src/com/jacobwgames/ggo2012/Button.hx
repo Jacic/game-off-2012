@@ -23,11 +23,9 @@ class Button extends Entity
 		graphic = image;
 		
 		setHitbox(64, 32);
-		changeState(act);
 		
 		activated = false;
 		type = "solid";
-		mode = themode;
 		x = xx;
 		y = yy;
 	}
@@ -37,7 +35,7 @@ class Button extends Entity
 		if(collide("clone", x, y - 1) != null)
 		{
 			activated = true;
-			image.play("activated"):
+			image.play("activated");
 		}
 		else
 		{
