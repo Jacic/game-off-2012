@@ -36,7 +36,7 @@ class Main extends Engine
 		HXP.screen.color = kClearColor;
 		HXP.screen.scale = 1;
 		Levels.levelArray = [Levels.level1, Levels.level2, Levels.level3, Levels.level4];
-		HXP.world = new PlayWorld(Levels.level1);
+		HXP.world = new PlayWorld(Levels.levelArray[0]);
 	}
 
 	public static function main()
