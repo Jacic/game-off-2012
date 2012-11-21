@@ -15,8 +15,8 @@ import haxe.xml.Fast;
 
 class PlayWorld extends World
 {
-	private var maxLevelWidth:Int;
-	private var maxLevelHeight:Int;
+	private var levelWidth:Int;
+	private var levelHeight:Int;
 	private var beginX:Int;
 	private var beginY:Int;
 	private var clonesNeeded:Int;
@@ -24,6 +24,11 @@ class PlayWorld extends World
 	private var savedText:Text;
 	private var clonesSaved:Int;
 	private var clones:Array<Player>;
+	private var buttons:Array<Button>;
+	private var bMode:Int;
+	private var buttonPrevState:String;
+	private var switchStart:Bool;
+	private var solidswitches:Array<SolidSwitch>;
 	private var activeClone:Player;
 	private var goal:Goal;
 	
@@ -33,12 +38,26 @@ class PlayWorld extends World
 		
 		Levels.curLevel += 1;
 		
-		maxLevelWidth = 2560;
-		maxLevelHeight = 1920;
-		
 		clones = [];
+		buttons = [];
+		solidswitches = [];
 		
 		var fast = new Fast(level.firstElement());
+		
+		levelWidth = Std.parseInt(fast.att.width);
+		levelHeight = Std.parseInt(fast.att.height);
+		
+		bMode = Std.parseInt(fast.att.bmode);
+		buttonPrevState = "";
+		
+		if(fast.att.switchstart == "true")
+		{
+			switchStart = true;
+		}
+		else
+		{
+			switchStart = false;
+		}
 		
 		clonesNeeded = Std.parseInt(fast.att.needed);
 		clonesSaved = 0;
@@ -55,6 +74,18 @@ class PlayWorld extends World
 		for(s in fast.nodes.Solid)
 		{
 			add(new Solid(Std.parseInt(s.att.x), Std.parseInt(s.att.y)));
+		}
+		for(sw in fast.nodes.SolidSwitch)
+		{
+			var sswitch = new SolidSwitch(sw.att.active, Std.parseInt(sw.att.x), Std.parseInt(sw.att.y));
+			solidswitches.push(sswitch);
+			add(sswitch);
+		}
+		for(b in fast.nodes.Button)
+		{
+			var button:Button = new Button(Std.parseInt(b.att.x), Std.parseInt(b.att.y));
+			buttons.push(button);
+			add(button);
 		}
 		for(g in fast.nodes.Goal)
 		{
@@ -89,17 +120,17 @@ class PlayWorld extends World
 		{
 			HXP.camera.x = 0;
 		}
-		else if(HXP.camera.x + HXP.width > maxLevelWidth)
+		else if(HXP.camera.x + HXP.width > levelWidth)
 		{
-			HXP.camera.x = maxLevelWidth - HXP.width;
+			HXP.camera.x = levelWidth - HXP.width;
 		}
 		if(HXP.camera.y < 0)
 		{
 			HXP.camera.y = 0;
 		}
-		else if(HXP.camera.y + HXP.height > maxLevelHeight)
+		else if(HXP.camera.y + HXP.height > levelHeight)
 		{
-			HXP.camera.y = maxLevelHeight - HXP.height;
+			HXP.camera.y = levelHeight - HXP.height;
 		}
 		
 		//get input to switch clones or create one
@@ -121,6 +152,8 @@ class PlayWorld extends World
 		{
 			checkToRespawn(i);
 		}
+		
+		checkButtons();
 		
 		clonesSaved = getClonesSaved();
 		savedText.text = "Saved: " + clonesSaved + " / " + clonesNeeded;
@@ -157,7 +190,7 @@ class PlayWorld extends World
 	
 	public function checkToRespawn(clone:Player)
 	{
-		if(clone.y > maxLevelHeight)
+		if(clone.y > levelHeight)
 		{
 			clone.x = beginX;
 			clone.y = beginY;
@@ -169,6 +202,33 @@ class PlayWorld extends World
 		var collides:Array<Entity> = [];
 		goal.collideInto("clone", goal.x, goal.y - 1, collides);
 		return collides.length;
+	}
+	
+	public function checkButtons()
+	{
+		if(buttons.length > 0 && bMode == 0)
+		{
+			for(b in buttons)
+			{
+				if(b.activated && Std.string(b.activated) != buttonPrevState)
+				{
+					for(s in solidswitches)
+					{
+						s.changeState(!switchStart);
+					}
+					buttonPrevState = Std.string(b.activated);
+					break;
+				}
+				else if(Std.string(b.activated) != buttonPrevState)
+				{
+					for(s in solidswitches)
+					{
+						s.changeState(switchStart);
+					}
+					buttonPrevState = Std.string(b.activated);
+				}
+			}
+		}
 	}
 	
 	public function updateCamera():Void
