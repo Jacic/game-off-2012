@@ -11,13 +11,13 @@ import com.haxepunk.graphics.Image;
 class SolidSwitch extends Entity
 {
 	
-	public function new(act:Bool, xx:Int, yy:Int) 
+	public function new(act:String, xx:Int, yy:Int) 
 	{
 		super();
 		
 		graphic = new Image("gfx/solidswitch.png");
 		setHitbox(64, 64);
-		changeState(act);
+		changeState(act == "true");
 		
 		x = xx;
 		y = yy;
