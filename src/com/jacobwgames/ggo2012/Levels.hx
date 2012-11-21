@@ -266,14 +266,14 @@ class Levels
     <Solid id="7" x="448" y="896" />
     <Solid id="8" x="512" y="896" />
     <Solid id="9" x="576" y="896" />
-    <SolidSwitch id="10" x="640" y="896" />
-    <SolidSwitch id="11" x="672" y="896" />
-    <SolidSwitch id="12" x="704" y="896" />
-    <SolidSwitch id="13" x="736" y="896" />
-    <SolidSwitch id="14" x="768" y="896" />
-    <SolidSwitch id="15" x="800" y="896" />
-    <SolidSwitch id="16" x="832" y="896" />
-    <SolidSwitch id="17" x="864" y="896" />
+    <SolidSwitch id="10" x="640" y="896" active="true" />
+    <SolidSwitch id="11" x="672" y="896" active="true" />
+    <SolidSwitch id="12" x="704" y="896" active="true" />
+    <SolidSwitch id="13" x="736" y="896" active="true" />
+    <SolidSwitch id="14" x="768" y="896" active="true" />
+    <SolidSwitch id="15" x="800" y="896" active="true" />
+    <SolidSwitch id="16" x="832" y="896" active="true" />
+    <SolidSwitch id="17" x="864" y="896" active="true" />
     <Solid id="18" x="896" y="896" />
     <Solid id="19" x="960" y="896" />
     <Solid id="20" x="1024" y="896" />
@@ -338,28 +338,28 @@ class Levels
     <Solid id="79" x="704" y="192" />
     <Goal id="80" x="352" y="544" />
     <Button id="81" x="352" y="864" />
-    <SolidSwitch id="82" x="544" y="864" />
-    <SolidSwitch id="83" x="544" y="832" />
-    <SolidSwitch id="84" x="544" y="800" />
-    <SolidSwitch id="85" x="544" y="768" />
-    <SolidSwitch id="86" x="544" y="736" />
-    <SolidSwitch id="87" x="544" y="704" />
-    <SolidSwitch id="88" x="544" y="672" />
-    <SolidSwitch id="89" x="544" y="640" />
-    <SolidSwitch id="90" x="1088" y="608" />
-    <SolidSwitch id="91" x="1120" y="608" />
-    <SolidSwitch id="92" x="1152" y="608" />
-    <SolidSwitch id="93" x="1184" y="608" />
-    <SolidSwitch id="94" x="1216" y="608" />
-    <SolidSwitch id="95" x="1248" y="608" />
-    <SolidSwitch id="96" x="1280" y="608" />
-    <SolidSwitch id="97" x="1312" y="608" />
-    <SolidSwitch id="98" x="1344" y="608" />
-    <SolidSwitch id="99" x="1376" y="608" />
-    <SolidSwitch id="100" x="1408" y="608" />
-    <SolidSwitch id="101" x="1440" y="608" />
-    <SolidSwitch id="102" x="1472" y="608" />
-    <SolidSwitch id="103" x="1504" y="608" />
+    <SolidSwitch id="82" x="544" y="864" active="true" />
+    <SolidSwitch id="83" x="544" y="832" active="true" />
+    <SolidSwitch id="84" x="544" y="800" active="true" />
+    <SolidSwitch id="85" x="544" y="768" active="true" />
+    <SolidSwitch id="86" x="544" y="736" active="true" />
+    <SolidSwitch id="87" x="544" y="704" active="true" />
+    <SolidSwitch id="88" x="544" y="672" active="true" />
+    <SolidSwitch id="89" x="544" y="640" active="true" />
+    <SolidSwitch id="90" x="1088" y="608" active="true" />
+    <SolidSwitch id="91" x="1120" y="608" active="true" />
+    <SolidSwitch id="92" x="1152" y="608" active="true" />
+    <SolidSwitch id="93" x="1184" y="608" active="true" />
+    <SolidSwitch id="94" x="1216" y="608" active="true" />
+    <SolidSwitch id="95" x="1248" y="608" active="true" />
+    <SolidSwitch id="96" x="1280" y="608" active="true" />
+    <SolidSwitch id="97" x="1312" y="608" active="true" />
+    <SolidSwitch id="98" x="1344" y="608" active="true" />
+    <SolidSwitch id="99" x="1376" y="608" active="true" />
+    <SolidSwitch id="100" x="1408" y="608" active="true" />
+    <SolidSwitch id="101" x="1440" y="608" active="true" />
+    <SolidSwitch id="102" x="1472" y="608" active="true" />
+    <SolidSwitch id="103" x="1504" y="608" active="true" />
     <Solid id="104" x="64" y="-32" />
     <Solid id="105" x="128" y="-32" />
     <Solid id="106" x="192" y="-32" />
@@ -388,12 +388,12 @@ class Levels
     <Solid id="129" x="1408" y="896" />
     <Solid id="130" x="1472" y="896" />
     <Solid id="131" x="1536" y="896" />
-    <SolidSwitch id="132" x="704" y="576" />
-    <SolidSwitch id="133" x="736" y="576" />
-    <SolidSwitch id="134" x="768" y="576" />
-    <SolidSwitch id="135" x="800" y="576" />
-    <SolidSwitch id="136" x="832" y="576" />
-    <SolidSwitch id="137" x="864" y="576" />
+    <SolidSwitch id="132" x="704" y="576" active="true" />
+    <SolidSwitch id="133" x="736" y="576" active="true" />
+    <SolidSwitch id="134" x="768" y="576" active="true" />
+    <SolidSwitch id="135" x="800" y="576" active="true" />
+    <SolidSwitch id="136" x="832" y="576" active="true" />
+    <SolidSwitch id="137" x="864" y="576" active="true" />
     <Clone id="0" x="128" y="768" />
 	</level>');
 }
