@@ -394,6 +394,9 @@ class Levels
     <SolidSwitch id="135" x="800" y="576" active="true" />
     <SolidSwitch id="136" x="832" y="576" active="true" />
     <SolidSwitch id="137" x="864" y="576" active="true" />
+	<Solid id="138" x="64" y="192" />
+    <Solid id="139" x="128" y="192" />
+    <Solid id="140" x="192" y="192" />
     <Clone id="0" x="128" y="768" />
 	</level>');
 }
