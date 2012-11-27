@@ -22,7 +22,8 @@ class Button extends Entity
 		image.add("activated", [1], 0, false);
 		graphic = image;
 		
-		setHitbox(64, 23);
+		originY = 8;
+		setHitbox(64, 23, 0, -8);
 		
 		activated = false;
 		type = "solid";
