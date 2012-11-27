@@ -43,7 +43,7 @@ class Player extends Entity
 		x = xx;
 		y = yy;
 		
-		setHitbox(96, 128);
+		setHitbox(72, 128, -11, 0);
 		type = "clone";
 		speed = 200;
 		vy = .1;
@@ -121,11 +121,11 @@ class Player extends Entity
 			//a solid object in the way
 			if(vx > 0)
 			{
-				x = colobject.x - width;
+				x = colobject.x + originX - width;
 			}
 			else
 			{
-				x = colobject.x + colobject.width;
+				x = colobject.x + originX + colobject.width;
 			}
 			vx = 0;
 		}
@@ -146,10 +146,19 @@ class Player extends Entity
 				{
 					for(i in colarr)
 					{
-						if(y + height <= i.y)
+						if(i.type == "clone")
+						{
+							if(y + height <= i.y)
+							{
+								vy = 0;
+								y = i.y - height;
+								jumpsLeft = 1;
+							}
+						}
+						else
 						{
 							vy = 0;
-							y = i.y - height;
+							y = i.y - i.originY - height;
 							jumpsLeft = 1;
 						}
 					}
