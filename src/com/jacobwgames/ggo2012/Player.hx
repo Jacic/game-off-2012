@@ -43,7 +43,7 @@ class Player extends Entity
 		x = xx;
 		y = yy;
 		
-		setHitbox(72, 128, -11, 0);
+		setHitbox(72, 128, -10, 0);
 		type = "clone";
 		speed = 200;
 		vy = .1;
