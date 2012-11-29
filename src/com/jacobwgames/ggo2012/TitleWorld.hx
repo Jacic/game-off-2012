@@ -87,6 +87,11 @@ class TitleWorld extends World
 		{
 			infoBtnBlur.visible = false;
 			infoBtnClear.visible = true;
+			if(Input.mousePressed)
+			{
+				HXP.world.removeAll();
+				HXP.world = new InfoWorld();
+			}
 		}
 		else
 		{
