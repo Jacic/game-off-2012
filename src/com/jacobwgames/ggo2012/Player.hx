@@ -5,6 +5,7 @@ import com.haxepunk.Entity;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.utils.Input;
 import com.haxepunk.utils.Key;
+import com.haxepunk.Sfx;
 
 /**
  * ...
@@ -23,6 +24,7 @@ class Player extends Entity
 	private var maxVertSpeed:Int;
 	private var jumpsLeft:Int;
 	private var isOnGround:Bool;
+	private var jumpSnd:Sfx;
 	
 	public function new(act:Bool, ind:Int, xx:Int, yy:Int) 
 	{
@@ -50,6 +52,8 @@ class Player extends Entity
 		gravity = .2;
 		maxVertSpeed = 15;
 		jumpsLeft = 1;
+		
+		jumpSnd = new Sfx("sfx/jump.wav");
 		
 		//set up controls
 		Input.define("up", [Key.W, Key.UP]);
@@ -87,6 +91,7 @@ class Player extends Entity
 			
 			if(Input.pressed("up") && jumpsLeft > 0)
 			{
+				jumpSnd.play();
 				jumpsLeft -= 1;
 				vy = -(maxVertSpeed * .58);
 			}
