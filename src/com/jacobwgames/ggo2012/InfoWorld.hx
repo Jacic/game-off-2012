@@ -38,7 +38,7 @@ class InfoWorld extends World
 		infoText = new Text("When scientists cloned the newly discovered alien\nhumanoids, they never suspected that the clones might\nnot want to take part in experiments.\nAll the clones want is to go home.\nGuide the clones to the teleporter in each area to escape.", 0, 0, 780, 400);
 		infoText.size = 24;
 		addGraphic(infoText, 0, Std.int(400 - (infoText.width * .5)), 100);
-		controlsText = new Text("Controls:\n-Arrow keys or WASD keys to move and jump\n-Keys 1-6 spawn a new clone and will switch between clones\n-Press Enter when enough clones have reached a\n  teleporter to activate it", 0, 0, 780, 250);
+		controlsText = new Text("Controls:\n-Arrow keys or WASD keys to move and jump\n-Keys 1-6 spawn a new clone and will switch between clones\n-Press R to restart a level\n-Press Enter when enough clones have reached a\n  teleporter to activate it", 0, 0, 780, 250);
 		controlsText.size = 24;
 		addGraphic(controlsText, 0, Std.int(400 - (controlsText.width * .5)), 300);
 		creditsText = new Text("Created by Jacob \"Jacic\" White\njacobwgames@gmail.com\nhttps://twitter.com/IamJacic\nhttps://jacobwgames.wordpress.com/", 0, 0, 500, 200);
