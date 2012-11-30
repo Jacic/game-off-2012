@@ -3,6 +3,7 @@ package com.jacobwgames.ggo2012;
 import com.haxepunk.graphics.Image;
 import com.haxepunk.graphics.Spritemap;
 import com.haxepunk.graphics.Text;
+import com.haxepunk.Sfx;
 import com.haxepunk.utils.Input;
 import com.haxepunk.World;
 import com.haxepunk.HXP;
@@ -61,6 +62,11 @@ class TitleWorld extends World
 		cloneL.add("left", [0]);
 		addGraphic(cloneL, HXP.BASELAYER, (780 - cloneL.width), Std.int(HXP.screen.height * .5));
 		cloneL.play("left");
+		
+		//init some sounds
+		G.cloneSnd = new Sfx("sfx/clone.wav");
+		G.hurtSnd = new Sfx("sfx/hurt.wav");
+		G.teleportSnd = new Sfx("sfx/teleport.wav");
 	}
 	
 	override public function update():Void
