@@ -138,6 +138,7 @@ class PlayWorld extends World
 		{
 			if(clones[Input.lastKey - 49] == null)
 			{
+				G.cloneSnd.play();
 				newClone();
 				clonesText.text = "Clones: " + clones.length + " / 6";
 			}
@@ -160,6 +161,7 @@ class PlayWorld extends World
 		
 		if(Input.pressed(Key.ENTER) && clonesSaved >= clonesNeeded)
 		{
+			G.teleportSnd.play();
 			HXP.world.removeAll();
 			HXP.world = new PlayWorld(Levels.levelArray[Levels.curLevel]);
 		}
@@ -192,6 +194,7 @@ class PlayWorld extends World
 	{
 		if(clone.y > levelHeight)
 		{
+			G.hurtSnd.play();
 			clone.x = beginX;
 			clone.y = beginY;
 		}
