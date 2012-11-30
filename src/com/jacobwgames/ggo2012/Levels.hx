@@ -288,7 +288,6 @@ class Levels
     <SolidSwitch id="15" x="800" y="896" active="true" />
     <SolidSwitch id="16" x="832" y="896" active="true" />
     <SolidSwitch id="17" x="864" y="896" active="true" />
-    <Solid id="18" x="896" y="896" />
     <Solid id="19" x="960" y="896" />
     <Solid id="20" x="1024" y="896" />
     <Solid id="21" x="1088" y="896" />
@@ -345,11 +344,6 @@ class Levels
     <Solid id="72" x="896" y="576" />
     <Solid id="73" x="960" y="576" />
     <Solid id="74" x="1024" y="576" />
-    <Solid id="75" x="448" y="192" />
-    <Solid id="76" x="512" y="192" />
-    <Solid id="77" x="576" y="192" />
-    <Solid id="78" x="640" y="192" />
-    <Solid id="79" x="704" y="192" />
     <Goal id="80" x="352" y="544" />
     <Button id="81" x="352" y="864" />
     <SolidSwitch id="82" x="544" y="864" active="true" />
@@ -408,9 +402,20 @@ class Levels
     <SolidSwitch id="135" x="800" y="576" active="true" />
     <SolidSwitch id="136" x="832" y="576" active="true" />
     <SolidSwitch id="137" x="864" y="576" active="true" />
-	<Solid id="138" x="64" y="192" />
+    <Solid id="138" x="64" y="192" />
     <Solid id="139" x="128" y="192" />
     <Solid id="140" x="192" y="192" />
+    <Solid id="75" x="448" y="192" />
+    <Solid id="76" x="512" y="192" />
+    <Solid id="77" x="512" y="256" />
+    <Solid id="78" x="512" y="320" />
+    <Solid id="79" x="576" y="320" />
+    <Solid id="141" x="640" y="320" />
+    <Solid id="142" x="704" y="320" />
+    <Solid id="143" x="768" y="320" />
+    <Solid id="144" x="832" y="320" />
+    <SolidSwitch id="18" x="896" y="896" active="true" />
+    <SolidSwitch id="145" x="928" y="896" active="true" />
     <Clone id="0" x="128" y="768" />
-	</level>');
+</level>');
 }
