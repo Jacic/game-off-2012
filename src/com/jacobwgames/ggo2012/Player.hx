@@ -15,6 +15,7 @@ import com.haxepunk.Sfx;
 class Player extends Entity
 {
 	public var index:Int;
+	public var direction:Int;
 	private var isActive:Bool;
 	private var imageR:Spritemap;
 	private var imageL:Spritemap;
@@ -26,7 +27,7 @@ class Player extends Entity
 	private var isOnGround:Bool;
 	private var jumpSnd:Sfx;
 	
-	public function new(act:Bool, ind:Int, xx:Int, yy:Int) 
+	public function new(act:Bool, ind:Int, dir:Int, xx:Int, yy:Int) 
 	{
 		super();
 		
@@ -38,7 +39,15 @@ class Player extends Entity
 		imageL = new Spritemap("gfx/cloneleft.png", 96, 128);
 		imageL.add("stand", [0], 0, false);
 		imageL.add("walk", [0, 1, 3, 2, 2, 1], 10, true);
-		graphic = imageR;
+		direction = dir;
+		if(direction == 0)
+		{
+			graphic = imageL;
+		}
+		else
+		{
+			graphic = imageR;
+		}
 		imageR.play("stand");
 		layer = 10;
 		
@@ -70,6 +79,7 @@ class Player extends Entity
 		{
 			if(Input.check("left"))
 			{
+				direction = 0;
 				vx -= speed * HXP.elapsed;
 				graphic = imageL;
 				imageL.play("walk");
@@ -80,6 +90,7 @@ class Player extends Entity
 			}
 			if(Input.check("right"))
 			{
+				direction = 1;
 				vx += speed * HXP.elapsed;
 				graphic = imageR;
 				imageR.play("walk");
