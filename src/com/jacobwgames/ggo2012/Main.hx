@@ -30,7 +30,7 @@ class Main extends Engine
 		if (flash.system.Capabilities.isDebugger)
 	#end
 		{
-			HXP.console.enable();
+			//HXP.console.enable();
 		}
 #end
 		HXP.screen.color = kClearColor;
