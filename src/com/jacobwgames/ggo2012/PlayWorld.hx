@@ -64,7 +64,7 @@ class PlayWorld extends World
 		{
 			beginX = Std.parseInt(c.att.x);
 			beginY = Std.parseInt(c.att.y);
-			var clone:Player = new Player(true, 0, beginX, beginY);
+			var clone:Player = new Player(true, 0, 1, beginX, beginY);
 			clones.push(clone);
 			activeClone = clone;
 			add(clone);
@@ -188,7 +188,7 @@ class PlayWorld extends World
 			i.changeActiveState(false);
 			i.layer = 100;
 		}
-		var newClone:Player = new Player(true, clones.length, Std.int(activeClone.x), Std.int(activeClone.y));
+		var newClone:Player = new Player(true, clones.length, activeClone.direction, Std.int(activeClone.x), Std.int(activeClone.y));
 		newClone.layer = 10;
 		clones.push(newClone);
 		add(newClone);
