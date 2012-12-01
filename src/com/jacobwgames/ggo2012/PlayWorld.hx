@@ -159,10 +159,18 @@ class PlayWorld extends World
 		
 		if(Input.pressed(Key.ENTER) && clonesSaved >= clonesNeeded)
 		{
-			Levels.curLevel += 1;
-			G.teleportSnd.play();
-			HXP.world.removeAll();
-			HXP.world = new PlayWorld(Levels.levelArray[Levels.curLevel]);
+			if(Levels.curLevel != Levels.lastLevel)
+			{
+				Levels.curLevel += 1;
+				G.teleportSnd.play();
+				HXP.world.removeAll();
+				HXP.world = new PlayWorld(Levels.levelArray[Levels.curLevel]);
+			}
+			else
+			{
+				HXP.world.removeAll();
+				HXP.world = new EndWorld();
+			}
 		}
 		
 		//check to restart
